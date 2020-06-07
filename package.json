@@ -10,12 +10,15 @@
     "typescript": "3.7.2"
   },
   "dependencies": {
+    "@anchan828/typeorm-transformers": "^0.3.52",
+    "@types/graphql-type-json": "^0.3.2",
     "apollo-server-express": "^2.9.9",
     "class-validator": "^0.12.2",
     "dataloader": "^2.0.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "graphql": "^14.5.8",
+    "graphql-type-json": "^0.3.1",
     "pg": "^7.18.2",
     "reflect-metadata": "^0.1.10",
     "sqlite3": "^4.1.0",
@@ -23,7 +26,7 @@
     "typeorm": "0.2.20"
   },
   "scripts": {
-    "start": "ts-node-dev --respawn src/index.ts",
+    "start": "ts-node-dev --respawn --no-notify src/index.ts",
     "build": "tsc"
   }
 }

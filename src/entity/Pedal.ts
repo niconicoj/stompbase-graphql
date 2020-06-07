@@ -1,8 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, JoinColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, JoinColumn, OneToOne, OneToMany } from "typeorm";
 import { Field, ObjectType, Ctx } from "type-graphql";
+
 import { Manufacturer } from "./Manufacturer";
 import { Lazy } from "../helpers";
 import { AppContext } from '../types/Context';
+import { Version } from "./Version";
+import { pedalVersionsLoader } from "../loaders/pedalVersionsLoader";
 
 @ObjectType()
 @Entity()
@@ -31,7 +34,12 @@ export class Pedal extends BaseEntity {
     }
   }
 
-  @Field()
-  @Column()
-  category: string;
+  @Field(() => [Version], {nullable: true})
+  versions(@Ctx() { pedalVersionsLoader }: AppContext): Promise<Version>|null {
+    return pedalVersionsLoader.load(this.id);
+  }
+  
+  @OneToMany(() => Version, version => version.pedalConnection)
+  versionsConnection: Promise<Version[]>;
 }
+

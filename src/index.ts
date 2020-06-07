@@ -8,6 +8,7 @@ import { ManufacturerResolver } from './resolvers/ManufacturerResolver';
 import * as dotenv from 'dotenv';
 import { manufacturerLoader } from "./loaders/manufacturerLoader";
 import { manufacturerPedalsLoader } from "./loaders/manufacturerPedalsLoader";
+import { pedalVersionsLoader } from "./loaders/pedalVersionsLoader";
 
 (async () => {
   const app = express();
@@ -24,10 +25,12 @@ import { manufacturerPedalsLoader } from "./loaders/manufacturerPedalsLoader";
       resolvers: [PedalResolver, ManufacturerResolver],
       validate: true
     }),
+    tracing: true,
     context: ({ req }: {req: Request}) => ({ 
       req,
       manufacturerLoader: manufacturerLoader(),
-      manufacturerPedalsLoader: manufacturerPedalsLoader()
+      manufacturerPedalsLoader: manufacturerPedalsLoader(),
+      pedalVersionsLoader: pedalVersionsLoader(),
     }),
   });
 

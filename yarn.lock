@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@anchan828/typeorm-transformers@^0.3.52":
+  version "0.3.52"
+  resolved "https://registry.yarnpkg.com/@anchan828/typeorm-transformers/-/typeorm-transformers-0.3.52.tgz#ada51ed761f1b33737e8530293efa1a5cd3b6398"
+  integrity sha512-anbvvtbTqrkmiULaMpTWxF217RdLLzcYvihMMpLgeZn2ncN2DW+aUb5DN4vpwavQQ1YAGbscsxbPfWldufuO1A==
+  dependencies:
+    deepmerge "4.2.2"
+
 "@apollo/protobufjs@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@apollo/protobufjs/-/protobufjs-1.0.4.tgz#cf01747a55359066341f31b5ce8db17df44244e0"
@@ -178,6 +185,13 @@
   dependencies:
     "@types/minimatch" "*"
     "@types/node" "*"
+
+"@types/graphql-type-json@^0.3.2":
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/@types/graphql-type-json/-/graphql-type-json-0.3.2.tgz#1a7105e6546fc1630a5db4834bfbc0eb554986e4"
+  integrity sha512-c1cq4o8EhY0Z39ua8UXwG8uBs23xBYA/Uw0tXFl6SuTUpkVv/IJqf6pHQbfdC7nwFRhX2ifTOV/UIg0Q/IJsbg==
+  dependencies:
+    graphql "^14.5.3"
 
 "@types/graphql-upload@^8.0.0":
   version "8.0.3"
@@ -1120,6 +1134,11 @@ deep-extend@^0.6.0:
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.6.0.tgz#c4fa7c95404a17a9c3e8ca7e1537312b736330ac"
   integrity sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==
 
+deepmerge@4.2.2:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-4.2.2.tgz#44d2ea3679b8f4d4ffba33f03d865fc1e7bf4955"
+  integrity sha512-FJ3UgI4gIl+PHZm53knsuSFpE+nESMr7M4v9QcgB7S63Kj/6WqMiFQJpBBYz1Pt+66bZpP3Q7Lye0Oo9MPKEdg==
+
 define-properties@^1.1.2, define-properties@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/define-properties/-/define-properties-1.1.3.tgz#cf88da6cbee26fe6db7094f61d870cbd84cee9f1"
@@ -1644,6 +1663,11 @@ graphql-tools@^4.0.0:
     deprecated-decorator "^0.1.6"
     iterall "^1.1.3"
     uuid "^3.1.0"
+
+graphql-type-json@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/graphql-type-json/-/graphql-type-json-0.3.1.tgz#47fca2b1fa7adc0758d165b33580d7be7a6cf548"
+  integrity sha512-1lPkUXQ2L8o+ERLzVAuc3rzc/E6pGF+6HnjihCVTK0VzR0jCuUd92FqNxoHdfILXqOn2L6b4y47TBxiPyieUVA==
 
 graphql-upload@^8.0.2:
   version "8.1.0"
