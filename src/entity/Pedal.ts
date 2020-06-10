@@ -5,7 +5,6 @@ import { Manufacturer } from "./Manufacturer";
 import { Lazy } from "../helpers";
 import { AppContext } from '../types/Context';
 import { Version } from "./Version";
-import { pedalVersionsLoader } from "../loaders/pedalVersionsLoader";
 
 @ObjectType()
 @Entity()
@@ -39,7 +38,7 @@ export class Pedal extends BaseEntity {
     return pedalVersionsLoader.load(this.id);
   }
   
-  @OneToMany(() => Version, version => version.pedalConnection)
+  @OneToMany(() => Version, version => version.pedalConnection, {onDelete: "CASCADE"})
   versionsConnection: Promise<Version[]>;
 }
 

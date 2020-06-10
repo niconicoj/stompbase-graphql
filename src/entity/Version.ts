@@ -1,8 +1,10 @@
 import { ObjectType, Field } from "type-graphql";
-import { Specification } from "./objects/Specification";
-import { Control } from "./objects/Control";
-import { Entity, OneToOne, Column, JoinColumn, BaseEntity, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, JoinColumn, BaseEntity, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
+import { JsonTransformer } from '@anchan828/typeorm-transformers';
+
 import { Pedal } from "./Pedal";
+import { Control } from "./objects/Control";
+import { Specification } from "./objects/Specification";
 import { Lazy } from "../helpers";
 
 @ObjectType()
@@ -21,17 +23,17 @@ export class Version extends BaseEntity {
   content: string;
 
   @Field(() => Specification, {nullable: true})
+  @Column(() => Specification)
   specification: Specification;
 
   @Field(() => Control, {nullable: true})
+  @Column({type: "text", transformer: new JsonTransformer<Control[]>(), nullable: true})
   controls: Control[];
 
-  @Column("uuid")
+  @Column()
   pedalId: string;
 
-  @OneToOne(() => Pedal, pedal => pedal.versions)
+  @ManyToOne(() => Pedal, pedal => pedal.versions, {onDelete: "CASCADE"})
   @JoinColumn({ name: "pedalId" })
   pedalConnection: Lazy<Pedal>;
-
-
 }

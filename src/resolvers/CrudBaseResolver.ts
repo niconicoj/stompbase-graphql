@@ -1,5 +1,4 @@
 import { ClassType, Resolver, Query, Arg, Mutation } from "type-graphql";
-import { InputType } from "zlib";
 
 export function createBaseCrudResolver<T extends ClassType, X extends ClassType>(
   suffix: string,
@@ -20,7 +19,7 @@ export function createBaseCrudResolver<T extends ClassType, X extends ClassType>
 
     @Mutation(() => Entity, {name: `create${ucSuffix}`})
     async create( 
-      @Arg('options', () => InputType ) options: InputType,
+      @Arg('options', () => InputType ) options: T,
     ) {
       const entity = await Entity.create(options).save();
       return entity;

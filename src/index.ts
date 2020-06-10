@@ -9,6 +9,7 @@ import * as dotenv from 'dotenv';
 import { manufacturerLoader } from "./loaders/manufacturerLoader";
 import { manufacturerPedalsLoader } from "./loaders/manufacturerPedalsLoader";
 import { pedalVersionsLoader } from "./loaders/pedalVersionsLoader";
+import { VersionResolver } from './resolvers/VersionResolver';
 
 (async () => {
   const app = express();
@@ -22,7 +23,7 @@ import { pedalVersionsLoader } from "./loaders/pedalVersionsLoader";
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [PedalResolver, ManufacturerResolver],
+      resolvers: [PedalResolver, ManufacturerResolver, VersionResolver],
       validate: true
     }),
     tracing: true,
